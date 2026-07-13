@@ -1,0 +1,12 @@
+{
+  "name": "linkedin-clone",
+  "version": "1.0.0",
+  "description": "A high-fidelity 99% lookalike LinkedIn Clone",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "author": "Antigravity AI",
+  "license": "ISC"
+}

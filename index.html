@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Manage your professional identity. Build and engage with your professional network. Access knowledge, insights and opportunities.">
+  <meta name="robots" content="index, follow">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%230a66c2%22><path d=%22M20 2H4C2.9 2 2 2.9 2 4V20C2 21.1 2.9 22 4 22H20C21.1 22 22 21.1 22 20V4C22 2.9 21.1 2 20 2ZM8 19H5V9H8V19ZM6.5 7.7C5.5 7.7 4.7 6.9 4.7 5.9C4.7 4.9 5.5 4.1 6.5 4.1C7.5 4.1 8.3 4.9 8.3 5.9C8.3 6.9 7.5 7.7 6.5 7.7ZM19 19H16V14C16 12.8 14.8 12 13.8 12C12.8 12 12 12.8 12 14V19H9V9H12V10.2C12.6 9.3 13.8 8.8 14.8 8.8C17.1 8.8 19 10.7 19 13V19Z%22/></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+  <!-- Header / Navigation Bar -->
+  <header class="global-nav">
+    <div class="global-nav__content">
+      <div class="global-nav__left">
+        <!-- Logo -->
+        <a href="#feed" class="global-nav__logo" id="nav-logo-btn" aria-label="LinkedIn Home">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" fill="currentColor">
+            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.75a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.95 0 3.4 1.3 3.4 4.14z"/>
+          </svg>
+        </a>
+        <!-- Search bar -->
+        <div class="global-nav__search" id="search-container">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+            <path d="M14.56 12.44L11.3 9.18a5.5 5.5 0 10-2.12 2.12l3.26 3.26a1.5 1.5 0 102.12-2.12zM3 6.5A3.5 3.5 0 116.5 10 3.5 3.5 0 013 6.5z"/>
+          </svg>
+          <input type="text" placeholder="Search" id="global-search-input" aria-label="Search" autocomplete="off">
+          <div class="search-suggestions" id="search-suggestions-dropdown">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </div>
+      
+      <div class="global-nav__right">
+        <!-- Navigation List -->
+        <nav class="global-nav__nav" aria-label="Main Navigation">
+          <ul class="global-nav__primary-items">
+            <li class="global-nav__primary-item">
+              <a href="#feed" class="global-nav__primary-link active" id="nav-home">
+                <div class="global-nav__icon-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M23 9v2h-2v10a1 1 0 01-1 1h-4v-6h-4v6H6a1 1 0 01-1-1V11H3V9L12 2z"/>
+                  </svg>
+                  <span class="notification-badge hidden" id="home-badge"></span>
+                </div>
+                <span class="global-nav__primary-link-text">Home</span>
+              </a>
+            </li>
+            <li class="global-nav__primary-item">
+              <a href="#network" class="global-nav__primary-link" id="nav-network">
+                <div class="global-nav__icon-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M12 16a3 3 0 10-3-3 3 3 0 003 3zm6 0a3 3 0 10-3-3 3 3 0 003 3zm-12 0a3 3 0 10-3-3 3 3 0 003 3zm12-9a3 3 0 10-3-3 3 3 0 003 3zm-6 0a3 3 0 10-3-3 3 3 0 003 3zm-6 0a3 3 0 10-3-3 3 3 0 003 3z"/>
+                  </svg>
+                  <span class="notification-badge" id="network-badge">2</span>
+                </div>
+                <span class="global-nav__primary-link-text">My Network</span>
+              </a>
+            </li>
+            <li class="global-nav__primary-item">
+              <a href="#jobs" class="global-nav__primary-link" id="nav-jobs">
+                <div class="global-nav__icon-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M17 6V4a2 2 0 00-2-2H9a2 2 0 00-2 2v2H2v13a2 2 0 002 2h16a2 2 0 002-2V6zM9 4h6v2H9zm11 15H4V8h16z"/>
+                  </svg>
+                </div>
+                <span class="global-nav__primary-link-text">Jobs</span>
+              </a>
+            </li>
+            <li class="global-nav__primary-item">
+              <a href="#messaging" class="global-nav__primary-link" id="nav-messaging">
+                <div class="global-nav__icon-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M16 2H8a5 5 0 00-5 5v8a5 5 0 005 5h8a5 5 0 005-5V7a5 5 0 00-5-5zm-3 12H7v-2h6zm4-4H7V8h10z"/>
+                  </svg>
+                  <span class="notification-badge" id="messages-badge">1</span>
+                </div>
+                <span class="global-nav__primary-link-text">Messaging</span>
+              </a>
+            </li>
+            <li class="global-nav__primary-item">
+              <a href="#notifications" class="global-nav__primary-link" id="nav-notifications">
+                <div class="global-nav__icon-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M22 19h-2.11a4.27 4.27 0 01-1.39-3.21v-3.79c0-3.32-2.18-6.13-5.25-7.06V4a1.25 1.25 0 00-2.5 0v1a7.48 7.48 0 00-5.25 7v3.79a4.34 4.34 0 01-1.39 3.21H2v2h20zM12 22a3 3 0 003-3H9a3 3 0 003 3z"/>
+                  </svg>
+                  <span class="notification-badge" id="notifications-badge">4</span>
+                </div>
+                <span class="global-nav__primary-link-text">Notifications</span>
+              </a>
+            </li>
+            
+            <!-- Profile Dropdown (Me) -->
+            <li class="global-nav__primary-item profile-dropdown-container">
+              <button class="global-nav__primary-link profile-btn" id="profile-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                <div class="global-nav__me-avatar" id="nav-me-avatar">
+                  <!-- User Profile Pic -->
+                </div>
+                <span class="global-nav__primary-link-text me-text">
+                  Me
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="nav-chevron">
+                    <path d="M8 11L3 6h10z"/>
+                  </svg>
+                </span>
+              </button>
+              
+              <!-- Dropdown Menu -->
+              <div class="profile-dropdown-menu" id="profile-dropdown">
+                <div class="profile-dropdown__header">
+                  <div class="profile-dropdown__avatar" id="dropdown-me-avatar"></div>
+                  <div class="profile-dropdown__info">
+                    <h3 class="profile-dropdown__name" id="user-display-name">Alex Mercer</h3>
+                    <p class="profile-dropdown__headline" id="user-display-headline">Full Stack Engineer | AI Enthusiast | Open Source Contributor</p>
+                  </div>
+                </div>
+                <a href="#profile" class="profile-dropdown__view-profile-btn" id="dropdown-view-profile-btn">View Profile</a>
+                <div class="profile-dropdown__section">
+                  <h4 class="profile-dropdown__section-title">Account</h4>
+                  <a href="#" class="profile-dropdown__link">Settings & Privacy</a>
+                  <a href="#" class="profile-dropdown__link">Help</a>
+                  <a href="#" class="profile-dropdown__link">Language</a>
+                </div>
+                <div class="profile-dropdown__section">
+                  <h4 class="profile-dropdown__section-title">Manage</h4>
+                  <a href="#" class="profile-dropdown__link">Posts & Activity</a>
+                  <a href="#" class="profile-dropdown__link">Job Posting Account</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        
+        <!-- Divider -->
+        <div class="global-nav__divider"></div>
+        
+        <!-- Work & Premium -->
+        <div class="global-nav__secondary-actions">
+          <button class="global-nav__primary-link secondary-btn" aria-label="LinkedIn Business tools">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M3 3h4v4H3zm7 0h4v4h-4zm7 0h4v4h-4zM3 10h4v4H3zm7 0h4v4h-4zm7 0h4v4h-4zM3 17h4v4H3zm7 0h4v4h-4zm7 0h4v4h-4z"/>
+            </svg>
+            <span class="global-nav__primary-link-text">
+              For Business
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="nav-chevron">
+                <path d="M8 11L3 6h10z"/>
+              </svg>
+            </span>
+          </button>
+          <a href="#" class="premium-cta-link">
+            Get Premium for free
+          </a>
+          <!-- Dark Mode Toggle Button -->
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm0-11a1 1 0 001-1V2a1 1 0 00-2 0v1a1 1 0 001 1zm0 16a1 1 0 00-1 1v1a1 1 0 002 0v-1a1 1 0 00-1-1zm9-9h-1a1 1 0 000 2h1a1 1 0 000-2zM4 12a1 1 0 00-1-1H2a1 1 0 000 2h1a1 1 0 001-1zm14.07-6.07a1 1 0 00-1.41 0l-.71.71a1 1 0 101.41 1.41l.71-.71a1 1 0 000-1.41zM6.64 15.95l-.71.71a1 1 0 101.41 1.41l.71-.71a1 1 0 10-1.41-1.41zm11.31 1.41a1 1 0 000-1.41l-.71-.71a1 1 0 10-1.41 1.41l.71.71a1 1 0 001.41 0zM6.64 6.64a1 1 0 000-1.41l-.71-.71a1 1 0 00-1.41 1.41l.71.71a1 1 0 001.41 0z"/>
+            </svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M12.3 22h-.1c-5.5-.2-9.9-4.8-9.7-10.4.2-5.2 4.3-9.4 9.5-9.6 1.2-.1 2.3.1 3.4.6.4.2.5.7.2 1-.3.3-.8.4-1.2.2-2.8-1.2-6 .8-6.3 3.9-.3 3.5 2.5 6.5 6 6.5 1.5 0 2.9-.5 3.9-1.5.3-.3.8-.2 1.1.1.3.4.2.9-.1 1.2-2.1 2.1-5.1 3.3-8 3.3h-.9z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main App Layout Container -->
+  <main class="app-layout">
+    <!-- Grid System matching LinkedIn's 3-column feed page layout -->
+    <div class="app-layout__grid" id="feed-grid">
+      
+      <!-- LEFT COLUMN: Profile info and groups -->
+      <aside class="app-layout__left-column">
+        <!-- Identity Card -->
+        <div class="identity-card linkedin-card">
+          <div class="identity-card__banner" id="user-profile-banner"></div>
+          <div class="identity-card__header">
+            <div class="identity-card__avatar" id="user-profile-avatar">
+              <!-- Dynamically rendered background image -->
+            </div>
+            <a href="#profile" class="identity-card__name-link" id="left-card-view-profile-btn">
+              <span class="identity-card__name" id="user-card-name">Alex Mercer</span>
+            </a>
+            <p class="identity-card__headline" id="user-card-headline">Full Stack Engineer | AI Enthusiast | Open Source Contributor</p>
+          </div>
+          
+          <div class="identity-card__stats">
+            <div class="identity-card__stat-row">
+              <a href="#" class="identity-card__stat-link">
+                <span class="identity-card__stat-label">Profile viewers</span>
+                <span class="identity-card__stat-value" id="profile-viewers-count">142</span>
+              </a>
+            </div>
+            <div class="identity-card__stat-row">
+              <a href="#" class="identity-card__stat-link">
+                <div class="identity-card__stat-flex">
+                  <span class="identity-card__stat-label">Post impressions</span>
+                  <span class="identity-card__stat-value" id="post-impressions-count">1,847</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <a href="#" class="identity-card__premium-link">
+            <div class="premium-link-content">
+              <span class="premium-label">Strengthen your profile with AI</span>
+              <span class="premium-action"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="gold" style="vertical-align: middle; margin-right: 4px;"><path d="M19 13.5A5.5 5.5 0 1113.5 8 5.5 5.5 0 0119 13.5zm-5.5 3a3 3 0 10-3-3 3 3 0 003 3z"/></svg> Try Premium for free</span>
+            </div>
+          </a>
+          
+          <a href="#" class="identity-card__my-items">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+              <path d="M12 1H4a1 1 0 00-1 1v12l5-3 5 3V2a1 1 0 00-1-1z"/>
+            </svg>
+            <span>My items</span>
+          </a>
+        </div>
+        
+        <!-- Sticky Navigation Box (Recent, Groups, Events) -->
+        <div class="sticky-nav-box linkedin-card">
+          <div class="sticky-nav-box__section">
+            <span class="sticky-nav-box__title">Recent</span>
+            <ul class="sticky-nav-box__list">
+              <li>
+                <a href="#">
+                  <span class="hashtag-symbol">#</span>
+                  <span class="sticky-nav-box__list-text">generativeai</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="hashtag-symbol">#</span>
+                  <span class="sticky-nav-box__list-text">webdevelopment</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="hashtag-symbol">#</span>
+                  <span class="sticky-nav-box__list-text">javascript</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="sticky-nav-box__section">
+            <a href="#" class="sticky-nav-box__heading-link">Groups</a>
+            <ul class="sticky-nav-box__list">
+              <li>
+                <a href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="nav-icon">
+                    <path d="M8 8a3 3 0 10-3-3 3 3 0 003 3zm6 0a3 3 0 10-3-3 3 3 0 003 3zM3 14.5a3.5 3.5 0 017 0zM10.5 14.5a3.5 3.5 0 013-1 3.5 3.5 0 011 1z"/>
+                  </svg>
+                  <span class="sticky-nav-box__list-text">AI Practitioners Network</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="nav-icon">
+                    <path d="M8 8a3 3 0 10-3-3 3 3 0 003 3zm6 0a3 3 0 10-3-3 3 3 0 003 3zM3 14.5a3.5 3.5 0 017 0zM10.5 14.5a3.5 3.5 0 013-1 3.5 3.5 0 011 1z"/>
+                  </svg>
+                  <span class="sticky-nav-box__list-text">React Developers Global</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="sticky-nav-box__section flex-section">
+            <a href="#" class="sticky-nav-box__heading-link">Events</a>
+            <button class="add-btn" aria-label="Add Event">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                <path d="M14 9H9v5H7V9H2V7h5V2h2v5h5v2z"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="sticky-nav-box__section">
+            <a href="#" class="sticky-nav-box__heading-link font-blue">Followed Hashtags</a>
+            <ul class="sticky-nav-box__list">
+              <li>
+                <a href="#">
+                  <span class="hashtag-symbol">#</span>
+                  <span class="sticky-nav-box__list-text">technology</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="hashtag-symbol">#</span>
+                  <span class="sticky-nav-box__list-text">careers</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <a href="#" class="sticky-nav-box__discover-more">Discover more</a>
+        </div>
+      </aside>
+      
+      <!-- MIDDLE COLUMN: Share box & Feed -->
+      <section class="app-layout__middle-column" aria-label="LinkedIn Feed">
+        <!-- Share Box -->
+        <div class="share-box linkedin-card">
+          <div class="share-box__top">
+            <div class="share-box__avatar" id="share-box-avatar">
+              <!-- Render user avatar -->
+            </div>
+            <button class="share-box__trigger-btn" id="start-post-btn">
+              Start a post, try writing with AI
+            </button>
+          </div>
+          
+          <div class="share-box__actions">
+            <button class="share-action-btn" id="share-photo-btn">
+              <svg class="photo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#378fe9">
+                <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-1 1H5a1 1 0 01-1-1v-5.6l3.3-3.3a1 1 0 011.4 0L12 12.3l3.3-3.3a1 1 0 011.4 0L20 12.3zM10.5 10a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>
+              </svg>
+              <span>Photo</span>
+            </button>
+            <button class="share-action-btn" id="share-video-btn">
+              <svg class="video-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#5f9b41">
+                <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm-9 12V8l6 4z"/>
+              </svg>
+              <span>Video</span>
+            </button>
+            <button class="share-action-btn" id="share-event-btn">
+              <svg class="event-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#c37d16">
+                <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
+              </svg>
+              <span>Event</span>
+            </button>
+            <button class="share-action-btn" id="share-article-btn">
+              <svg class="article-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#e06847">
+                <path d="M19 5H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2zm-5 10H7v-2h7zm3-4H7V9h10z"/>
+              </svg>
+              <span>Write article</span>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Feed Sort Row -->
+        <div class="feed-sort-row">
+          <hr class="feed-sort-divider">
+          <div class="feed-sort-dropdown">
+            <span class="feed-sort-label">Sort by:</span>
+            <button class="feed-sort-btn" id="feed-sort-trigger" aria-haspopup="true">
+              <span class="selected-sort">Top</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                <path d="M8 11L3 6h10z"/>
+              </svg>
+            </button>
+            <div class="sort-menu" id="feed-sort-menu">
+              <button class="sort-menu-item active" data-sort="top">Top</button>
+              <button class="sort-menu-item" data-sort="recent">Recent</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Feed Posts Container -->
+        <div class="feed-posts" id="main-feed-posts">
+          <!-- Populated by JS -->
+          <div class="feed-loader">
+            <div class="pulse-avatar"></div>
+            <div class="pulse-lines">
+              <div class="pulse-line short"></div>
+              <div class="pulse-line long"></div>
+              <div class="pulse-line medium"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- RIGHT COLUMN: LinkedIn News, Ads & Footer -->
+      <aside class="app-layout__right-column">
+        <!-- LinkedIn News Box -->
+        <div class="news-box linkedin-card">
+          <div class="news-box__header">
+            <h2 class="news-box__title">LinkedIn News</h2>
+            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" title="Information about these recommendations">
+              <path d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12zm-.5-5.5v3h1v-3h-1zm.5-2a.75.75 0 100-1.5.75.75 0 000 1.5z"/>
+            </svg>
+          </div>
+          
+          <ul class="news-box__list" id="linkedin-news-list">
+            <!-- Populated via JS for real interactive content -->
+          </ul>
+          
+          <button class="news-box__expand-btn" id="news-expand-btn">
+            <span>Show more</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="chevron-down-icon">
+              <path d="M8 11L3 6h10z"/>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Promoted Ad Card -->
+        <div class="ad-card linkedin-card">
+          <div class="ad-card__header">
+            <span class="ad-card__tag">Ad</span>
+            <button class="ad-card__options" aria-label="Ad options">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                <path d="M3 9.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="ad-card__content">
+            <p class="ad-card__tagline">Unlock your full AI potential with CareerBridge Prep</p>
+            <div class="ad-card__visuals">
+              <div class="ad-card__avatar-placeholder" id="ad-avatar-me"></div>
+              <div class="ad-card__logo-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="#3157d5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="ad-card__headline">Get ahead of your placements with expert guided paths in Aptitude, Coding & Interview Prep.</h3>
+            <a href="/CareerBridge-AI" class="ad-card__cta-btn">Learn More</a>
+          </div>
+        </div>
+        
+        <!-- Footer Links -->
+        <footer class="global-footer" aria-label="LinkedIn Footer Links">
+          <div class="global-footer__links">
+            <a href="#">About</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Help Center</a>
+            <a href="#">Privacy & Terms</a>
+            <a href="#">Ad Choices</a>
+            <a href="#">Advertising</a>
+            <a href="#">Business Services</a>
+            <a href="#">Get the LinkedIn app</a>
+            <a href="#">More</a>
+          </div>
+          <div class="global-footer__copyright">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="56" height="14" fill="#0a66c2" class="footer-logo">
+              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.75a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.95 0 3.4 1.3 3.4 4.14z"/>
+            </svg>
+            <span>LinkedIn Corporation &copy; 2026</span>
+          </div>
+        </footer>
+      </aside>
+      
+    </div>
+
+    <!-- ==========================================================
+         NETWORK GRID LAYOUT (#network-grid)
+         ========================================================== -->
+    <div class="app-layout__grid hidden" id="network-grid">
+      <!-- Left sidebar: Manage Network -->
+      <aside class="app-layout__left-column">
+        <div class="linkedin-card network-sidebar-card">
+          <div class="network-sidebar__header">
+            <h3>Manage my network</h3>
+          </div>
+          <ul class="network-sidebar__list">
+            <li class="network-sidebar__item">
+              <a href="#network" class="network-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 16a3 3 0 10-3-3 3 3 0 003 3zm6 0a3 3 0 10-3-3 3 3 0 003 3zm-12 0a3 3 0 10-3-3 3 3 0 003 3zm12-9a3 3 0 10-3-3 3 3 0 003 3zm-6 0a3 3 0 10-3-3 3 3 0 003 3zm-6 0a3 3 0 10-3-3 3 3 0 003 3z"/></svg>
+                <span>Connections</span>
+                <span class="network-sidebar__badge" id="net-connections-count">250</span>
+              </a>
+            </li>
+            <li class="network-sidebar__item">
+              <a href="#network" class="network-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 14H6v-2h12zm0-4H6v-2h12zm0-4H6V7h12z"/></svg>
+                <span>Contacts</span>
+                <span class="network-sidebar__badge">412</span>
+              </a>
+            </li>
+            <li class="network-sidebar__item">
+              <a href="#network" class="network-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2a5 5 0 105 5 5 5 0 00-5-5zm0 8a3 3 0 113-3 3 3 0 01-3 3zm9 11v-1a7 7 0 00-14 0v1h2v-1a5 5 0 0110 0v1z"/></svg>
+                <span>Groups</span>
+                <span class="network-sidebar__badge">18</span>
+              </a>
+            </li>
+            <li class="network-sidebar__item">
+              <a href="#network" class="network-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/></svg>
+                <span>Events</span>
+                <span class="network-sidebar__badge">6</span>
+              </a>
+            </li>
+            <li class="network-sidebar__item">
+              <a href="#network" class="network-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-14m0-2v2H5V3c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2z"/></svg>
+                <span>Pages</span>
+                <span class="network-sidebar__badge">24</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      
+      <!-- Middle column: Invitations & Suggestions -->
+      <section class="app-layout__middle-column">
+        <div class="linkedin-card invitations-card">
+          <div class="card-header">
+            <h3>Invitations</h3>
+            <button class="see-all-btn">See all 2</button>
+          </div>
+          <div class="invitations-list" id="invitations-list-container">
+            <div class="invitation-item" id="invite-1">
+              <div class="invitation-avatar" style="background-image: url('assets/bob.jpg')"></div>
+              <div class="invitation-info">
+                <h4 class="invitation-name">Rahul Sharma</h4>
+                <p class="invitation-headline">Software Engineer @ TechNova | ex-SkillTap Trainee</p>
+                <span class="mutual-connections">5 mutual connections</span>
+              </div>
+              <div class="invitation-actions">
+                <button class="ignore-btn" id="ignore-1">Ignore</button>
+                <button class="accept-btn" id="accept-1">Accept</button>
+              </div>
+            </div>
+            <div class="invitation-item" id="invite-2">
+              <div class="invitation-avatar" style="background-image: url('assets/alice.jpg')"></div>
+              <div class="invitation-info">
+                <h4 class="invitation-name">Sneha Reddy</h4>
+                <p class="invitation-headline">UI/UX Designer at DesignFlow</p>
+                <span class="mutual-connections">12 mutual connections</span>
+              </div>
+              <div class="invitation-actions">
+                <button class="ignore-btn" id="ignore-2">Ignore</button>
+                <button class="accept-btn" id="accept-2">Accept</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="linkedin-card suggestions-card">
+          <div class="card-header">
+            <h3>People you may know based on your experience</h3>
+          </div>
+          <div class="suggestions-grid" id="network-suggestions-grid">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </section>
+      
+      <!-- Right sidebar -->
+      <aside class="app-layout__right-column">
+        <div class="ad-card linkedin-card">
+          <div class="ad-card__header">
+            <span class="ad-card__tag">Ad</span>
+          </div>
+          <div class="ad-card__content">
+            <p class="ad-card__tagline">Unlock your full AI potential with CareerBridge Prep</p>
+            <div class="ad-card__visuals">
+              <div class="ad-card__avatar-placeholder" id="ad-avatar-me-network"></div>
+              <div class="ad-card__logo-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="#3157d5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="ad-card__headline">Get ahead of your placements with expert guided paths in Aptitude, Coding & Interview Prep.</h3>
+            <a href="#jobs" class="ad-card__cta-btn">Learn More</a>
+          </div>
+        </div>
+        
+        <footer class="global-footer" style="margin-top: 16px;">
+          <div class="global-footer__links">
+            <a href="#">About</a>
+            <a href="#">Help Center</a>
+            <a href="#">Privacy & Terms</a>
+          </div>
+          <div class="global-footer__copyright">
+            <span>LinkedIn Corporation &copy; 2026</span>
+          </div>
+        </footer>
+      </aside>
+    </div>
+
+    <!-- ==========================================================
+         JOBS GRID LAYOUT (#jobs-grid)
+         ========================================================== -->
+    <div class="app-layout__grid hidden" id="jobs-grid">
+      <!-- Left sidebar: Jobs Menu -->
+      <aside class="app-layout__left-column">
+        <div class="linkedin-card jobs-sidebar-card">
+          <ul class="jobs-sidebar__list">
+            <li class="jobs-sidebar__item">
+              <a href="#jobs" class="jobs-sidebar__link active">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+                <span>My jobs</span>
+                <span class="jobs-sidebar__badge" id="applied-jobs-badge">0</span>
+              </a>
+            </li>
+            <li class="jobs-sidebar__item">
+              <a href="#jobs" class="jobs-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 22a3 3 0 003-3H9a3 3 0 003 3zm9-9a7 7 0 00-14 0v1h2v-1a5 5 0 0110 0v1z"/></svg>
+                <span>Job alerts</span>
+              </a>
+            </li>
+            <li class="jobs-sidebar__item">
+              <a href="#jobs" class="jobs-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 22a10 10 0 1110-10 10 10 0 01-10 10zm0-18a8 8 0 108 8 8 8 0 00-8-8zm-1 5h2v6h-2zm0 8h2v2h-2z"/></svg>
+                <span>Skill assessments</span>
+              </a>
+            </li>
+            <li class="jobs-sidebar__item">
+              <a href="#jobs" class="jobs-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+                <span>Interview prep</span>
+              </a>
+            </li>
+            <li class="jobs-sidebar__item">
+              <a href="#jobs" class="jobs-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+                <span>Resume builder</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      
+      <!-- Middle: Job Search & Postings -->
+      <section class="app-layout__middle-column">
+        <div class="linkedin-card job-search-card">
+          <div class="job-search-box">
+            <h3>Find your next job</h3>
+            <div class="job-search-fields">
+              <div class="search-field">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M14.56 12.44L11.3 9.18a5.5 5.5 0 10-2.12 2.12l3.26 3.26a1.5 1.5 0 102.12-2.12zM3 6.5A3.5 3.5 0 116.5 10 3.5 3.5 0 013 6.5z"/></svg>
+                <input type="text" id="jobs-title-search" placeholder="Search by title, skill, or company">
+              </div>
+              <div class="search-field">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8zm0 11a3 3 0 113-3 3 3 0 01-3 3z"/></svg>
+                <input type="text" id="jobs-location-search" placeholder="City, state, or zip code">
+              </div>
+              <button class="job-search-btn" id="job-search-trigger">Search</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="linkedin-card job-results-card">
+          <div class="card-header">
+            <h3 id="jobs-results-header">Recommended for you</h3>
+          </div>
+          <div class="jobs-list" id="jobs-list-container">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </section>
+      
+      <!-- Right sidebar: Job Seeker Guidance -->
+      <aside class="app-layout__right-column">
+        <div class="linkedin-card job-guidance-card">
+          <h3>Job seeker guidance</h3>
+          <ul class="job-guidance__list">
+            <li>
+              <a href="#feed">
+                <span class="guidance-title">How to rebuild marketplaces with Next.js 15</span>
+                <span class="guidance-desc">Read about Rakesh Kanna's secure Supabase and React 19 architecture setup.</span>
+              </a>
+            </li>
+            <li>
+              <a href="#feed">
+                <span class="guidance-title">Resume optimizing for Lighthouse speed</span>
+                <span class="guidance-desc">Tips from Dhanush Kumar on removing heavy elements to boost core web vitals by 45%.</span>
+              </a>
+            </li>
+            <li>
+              <a href="#feed">
+                <span class="guidance-title">Securing credentials and bucket policies</span>
+                <span class="guidance-desc">Google Engineering Manager Alice Smith on designing production-ready portfolios.</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <!-- ==========================================================
+         MESSAGING GRID LAYOUT (#messaging-grid)
+         ========================================================== -->
+    <div class="app-layout__grid hidden" id="messaging-grid">
+      <!-- Left column: Conversations list -->
+      <aside class="app-layout__left-column linkedin-card messaging-list-card">
+        <div class="messaging-list-card__header">
+          <h3>Messaging</h3>
+          <div class="msg-search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M14.56 12.44L11.3 9.18a5.5 5.5 0 10-2.12 2.12l3.26 3.26a1.5 1.5 0 102.12-2.12zM3 6.5A3.5 3.5 0 116.5 10 3.5 3.5 0 013 6.5z"/></svg>
+            <input type="text" placeholder="Search messages" id="full-msg-search">
+          </div>
+        </div>
+        <div class="messaging-list-card__conversations" id="full-conversations-list">
+          <!-- Populated via JS -->
+        </div>
+      </aside>
+      
+      <!-- Right column (spans middle and right): Active conversation -->
+      <section class="app-layout__middle-column linkedin-card full-chat-card" style="grid-column: span 2;">
+        <div class="full-chat-header" id="full-chat-header-details">
+          <!-- Populated via JS -->
+        </div>
+        <div class="full-chat-body" id="full-chat-messages-body">
+          <!-- Populated via JS -->
+        </div>
+        <div class="full-chat-footer" id="full-chat-footer-controls">
+          <!-- Populated via JS -->
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================================
+         NOTIFICATIONS GRID LAYOUT (#notifications-grid)
+         ========================================================== -->
+    <div class="app-layout__grid hidden" id="notifications-grid">
+      <!-- Left sidebar: Options -->
+      <aside class="app-layout__left-column">
+        <div class="linkedin-card notifications-sidebar-card">
+          <h3>Manage your Notifications</h3>
+          <ul class="notifications-sidebar__list">
+            <li><button class="notifications-sidebar__btn active" id="noti-filter-all">All</button></li>
+            <li><button class="notifications-sidebar__btn" id="noti-filter-posts">My posts</button></li>
+            <li><button class="notifications-sidebar__btn" id="noti-filter-mentions">Mentions</button></li>
+          </ul>
+        </div>
+      </aside>
+      
+      <!-- Middle: Notifications list -->
+      <section class="app-layout__middle-column">
+        <div class="linkedin-card notifications-list-card">
+          <div class="card-header">
+            <h3>Notifications</h3>
+          </div>
+          <div class="notifications-list" id="notifications-list-container">
+            <!-- Simulated notifications loaded via JS -->
+          </div>
+        </div>
+      </section>
+      
+      <!-- Right sidebar: Ad -->
+      <aside class="app-layout__right-column">
+        <div class="ad-card linkedin-card">
+          <div class="ad-card__header">
+            <span class="ad-card__tag">Ad</span>
+          </div>
+          <div class="ad-card__content">
+            <p class="ad-card__tagline">Unlock your full AI potential with CareerBridge Prep</p>
+            <div class="ad-card__visuals">
+              <div class="ad-card__avatar-placeholder" id="ad-avatar-me-noti"></div>
+              <div class="ad-card__logo-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="#3157d5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="ad-card__headline">Get ahead of your placements with expert guided paths in Aptitude, Coding & Interview Prep.</h3>
+            <a href="#jobs" class="ad-card__cta-btn">Learn More</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- ==========================================================
+         PROFILE GRID LAYOUT (#profile-grid)
+         ========================================================== -->
+    <div class="app-layout__grid hidden" id="profile-grid">
+      <!-- Left Column: Mini Profile Menu -->
+      <aside class="app-layout__left-column">
+        <div class="linkedin-card profile-left-card">
+          <div class="profile-left-card__header" style="padding: 16px; text-align: center;">
+            <div class="profile-left-card__avatar" id="profile-left-avatar" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 12px auto; background-size: cover; background-position: center; border: 1px solid var(--border-color); background-color: var(--bg-input);"></div>
+            <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary);">Rakesh Kanna M</h4>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-top: 4px; line-height: 1.3;">Full Stack Engineer & Designer</p>
+          </div>
+          <div style="border-top: 1px solid var(--border-color); padding: 12px; text-align: center;">
+            <a href="https://www.linkedin.com/in/rakesh-kanna-649b8b2b7/?skipRedirect=true" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--primary-color);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              View Official LinkedIn
+            </a>
+          </div>
+        </div>
+      </aside>
+      
+      <!-- Middle: Profile Main details -->
+      <section class="app-layout__middle-column">
+        <!-- Header Card -->
+        <div class="linkedin-card profile-main-header-card" style="position: relative;">
+          <div class="profile-main-cover" id="profile-main-cover-banner" style="height: 140px; background-size: cover; background-position: center; background-color: #a0b4b7;"></div>
+          <div class="profile-main-info" style="padding: 24px; position: relative;">
+            <div class="profile-main-avatar" id="profile-main-avatar-img" style="width: 130px; height: 130px; border-radius: 50%; border: 4px solid var(--bg-card); background-size: cover; background-position: center; position: absolute; top: -85px; left: 24px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); background-color: var(--bg-input);"></div>
+            <div style="margin-top: 55px;">
+              <h2 style="font-size: 24px; font-weight: 600; color: var(--text-primary);">Rakesh Kanna M</h2>
+              <p style="font-size: 16px; color: var(--text-primary); margin-top: 4px; line-height: 1.4;">Full Stack Engineer | Founder & Lead Developer at Rakexura | Next.js 15, React 19 & Supabase Expert</p>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; font-size: 14px; color: var(--text-secondary);">
+                <span style="display: inline-flex; align-items: center; gap: 4px;">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+                    <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Chennai, Tamil Nadu, India
+                </span>
+                <span>•</span>
+                <a href="#network" style="font-weight: 600; color: var(--primary-color);">250 connections</a>
+                <span>•</span>
+                <a href="https://www.linkedin.com/in/rakesh-kanna-649b8b2b7/?skipRedirect=true" target="_blank" style="font-weight: 600; color: var(--primary-color);">Contact info</a>
+              </div>
+              <div style="display: flex; gap: 8px; margin-top: 16px;">
+                <button class="post-modal__submit-btn" style="padding: 6px 16px; border-radius: 100px; font-weight: 600; font-size: 14px;" onclick="window.location.hash='#messaging';">Open to</button>
+                <button class="profile-dropdown__view-profile-btn" style="margin: 0; padding: 5px 16px; font-size: 14px; font-weight: 600;">More</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- About Card -->
+        <div class="linkedin-card profile-card-section" style="padding: 24px; margin-top: 16px;">
+          <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">About</h3>
+          <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; white-space: pre-line;">
+            Passionate Full Stack Engineer, Designer, and Developer based in Chennai, India, focused on engineering premium, state-of-the-art web experiences. Specializing in high-performance frontend frameworks and modern, secure backends.
+            
+            Technical specialization:
+            • Core Frontend: Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS v4, Zustand, Swiper
+            • Backend Services: Supabase, PostgreSQL, REST APIs, Row Level Security (RLS) policies
+            • Tooling & Performance: Sentry, GSAP ScrollTrigger, Lenis smooth scrolling, SMTP delivery setups
+          </p>
+        </div>
+        
+        <!-- Experience Card -->
+        <div class="linkedin-card profile-card-section" style="padding: 24px; margin-top: 16px;">
+          <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">Experience</h3>
+          <div class="experience-timeline" style="display: flex; flex-direction: column; gap: 20px;">
+            
+            <!-- Exp 1 -->
+            <div style="display: flex; gap: 16px;">
+              <div class="exp-logo" style="width: 48px; height: 48px; border-radius: 4px; background-color: var(--primary-light); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary-color); flex-shrink: 0;">R</div>
+              <div>
+                <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary);">Founder & Lead Developer</h4>
+                <p style="font-size: 14px; color: var(--text-primary); margin-top: 2px;">Rakexura</p>
+                <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Jan 2025 – Present • Full-time</p>
+                <p style="font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.5; white-space: pre-line;">
+                  • Led the full-stack architecture rebuild of the Rakexura Game Marketplace using Next.js 15, React 19, and Supabase security modules.
+                  • Configured Row Level Security (RLS) policies for secure customer checkouts, cart management, and private storage assets.
+                  • Optimized UI responsiveness using Tailwind CSS v4, Zustand, and Swiper.
+                </p>
+              </div>
+            </div>
+            
+            <hr style="border: 0; border-top: 1px solid var(--border-color);">
+            
+            <!-- Exp 2 -->
+            <div style="display: flex; gap: 16px;">
+              <div class="exp-logo" style="width: 48px; height: 48px; border-radius: 4px; background-color: var(--primary-light); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary-color); flex-shrink: 0;">C</div>
+              <div>
+                <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary);">Frontend Developer Intern</h4>
+                <p style="font-size: 14px; color: var(--text-primary); margin-top: 2px;">CodeCraft Solutions</p>
+                <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Dec 2025 – Present • Internship</p>
+                <p style="font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.5;">
+                  • Collaborated on building clean, modular responsive developer dashboards in vanilla JS and custom CSS stylesheets.
+                  • Managed user action flows and optimized interface performance.
+                </p>
+              </div>
+            </div>
+            
+            <hr style="border: 0; border-top: 1px solid var(--border-color);">
+            
+            <!-- Exp 3 -->
+            <div style="display: flex; gap: 16px;">
+              <div class="exp-logo" style="width: 48px; height: 48px; border-radius: 4px; background-color: var(--primary-light); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary-color); flex-shrink: 0;">S</div>
+              <div>
+                <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary);">Frontend Project Trainee</h4>
+                <p style="font-size: 14px; color: var(--text-primary); margin-top: 2px;">SkillTap Academy</p>
+                <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Jul 2025 – Nov 2025 • Training</p>
+                <p style="font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.5;">
+                  • Completed structured project modules focusing on web layouts, CSS variables, and client-side form validations.
+                </p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        <!-- Education Card -->
+        <div class="linkedin-card profile-card-section" style="padding: 24px; margin-top: 16px;">
+          <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">Education</h3>
+          <div style="display: flex; gap: 16px;">
+            <div class="exp-logo" style="width: 48px; height: 48px; border-radius: 4px; background-color: var(--primary-light); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary-color); flex-shrink: 0;">S</div>
+            <div>
+              <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary);">SkillTap Engineering College</h4>
+              <p style="font-size: 14px; color: var(--text-primary); margin-top: 2px;">Bachelor of Technology - BTech, Computer Science</p>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">2022 – 2026</p>
+              <p style="font-size: 14px; color: var(--text-secondary); margin-top: 8px;">Core Coursework: Data Structures & Algorithms, Database Systems, Web Engineering, and OOP Java.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Skills Card -->
+        <div class="linkedin-card profile-card-section" style="padding: 24px; margin-top: 16px;">
+          <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">Skills</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <span class="skill-pill" style="background-color: var(--bg-input); color: var(--text-primary); padding: 8px 16px; border-radius: 100px; font-weight: 500; font-size: 13px; border: 1px solid var(--border-color);">React 19</span>
+            <span class="skill-pill" style="background-color: var(--bg-input); color: var(--text-primary); padding: 8px 16px; border-radius: 100px; font-weight: 500; font-size: 13px; border: 1px solid var(--border-color);">Next.js 15</span>
+            <span class="skill-pill" style="background-color: var(--bg-input); color: var(--text-primary); padding: 8px 16px; border-radius: 100px; font-weight: 500; font-size: 13px; border: 1px solid var(--border-color);">Supabase & RLS</span>
+            <span class="skill-pill" style="background-color: var(--bg-input); color: var(--text-primary); padding: 8px 16px; border-radius: 100px; font-weight: 500; font-size: 13px; border: 1px solid var(--border-color);">PostgreSQL</span>
+            <span class="skill-pill" style="background-color: var(--bg-input); color: var(--text-primary); padding: 8px 16px; border-radius: 100px; font-weight: 500; font-size: 13px; border: 1px solid var(--border-color);">Tailwind CSS v4</span>
+            <span class="skill-pill" style="background-color: var(--bg-input); color: var(--text-primary); padding: 8px 16px; border-radius: 100px; font-weight: 500; font-size: 13px; border: 1px solid var(--border-color);">TypeScript</span>
+            <span class="skill-pill" style="background-color: var(--bg-input); color: var(--text-primary); padding: 8px 16px; border-radius: 100px; font-weight: 500; font-size: 13px; border: 1px solid var(--border-color);">Zustand</span>
+            <span class="skill-pill" style="background-color: var(--bg-input); color: var(--text-primary); padding: 8px 16px; border-radius: 100px; font-weight: 500; font-size: 13px; border: 1px solid var(--border-color);">UI/UX Design (Figma)</span>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Right Sidebar: Suggestions -->
+      <aside class="app-layout__right-column">
+        <!-- People also viewed -->
+        <div class="linkedin-card views-sidebar-card" style="padding: 16px;">
+          <h3 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">People also viewed</h3>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background-image: url('assets/sarah.jpg'); background-size: cover; background-position: center; flex-shrink: 0;"></div>
+              <div>
+                <a href="#messaging" style="font-weight: 600; font-size: 13px; color: var(--text-primary);">Dhanush Kumar</a>
+                <p style="font-size: 11px; color: var(--text-secondary); line-height: 1.2;">Lead Developer @ CareerBridge AI</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background-image: url('assets/john.jpg'); background-size: cover; background-position: center; flex-shrink: 0;"></div>
+              <div>
+                <a href="#messaging" style="font-weight: 600; font-size: 13px; color: var(--text-primary);">Arun</a>
+                <p style="font-size: 11px; color: var(--text-secondary); line-height: 1.2;">Full Stack Developer | CareerBridge Prep</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background-image: url('assets/alice.jpg'); background-size: cover; background-position: center; flex-shrink: 0;"></div>
+              <div>
+                <a href="#messaging" style="font-weight: 600; font-size: 13px; color: var(--text-primary);">Alice Smith</a>
+                <p style="font-size: 11px; color: var(--text-secondary); line-height: 1.2;">Engineering Manager at Google</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Create Post Modal Dialog -->
+  <div class="post-modal-overlay hidden" id="post-modal" aria-hidden="true" role="dialog">
+    <div class="post-modal">
+      <div class="post-modal__header">
+        <h2 class="post-modal__title">Create a post</h2>
+        <button class="post-modal__close-btn" id="close-post-modal" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="post-modal__user-info">
+        <div class="post-modal__avatar" id="modal-user-avatar"></div>
+        <div class="post-modal__dropdowns">
+          <span class="post-modal__username" id="modal-user-name">Alex Mercer</span>
+          <button class="post-modal__dropdown-btn" aria-haspopup="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="globe-icon">
+              <path d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 1.25a5.75 5.75 0 013.9 1.54l-1.3 1.3a3.83 3.83 0 00-2.6-.84 3.9 3.9 0 000 7.8 3.83 3.83 0 002.6-.84l1.3 1.3a5.75 5.75 0 01-7.8-7.8 5.75 5.75 0 013.9-1.54z"/>
+            </svg>
+            <span>Anyone</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="12" height="12" fill="currentColor" class="chevron-icon">
+              <path d="M8 11L3 6h10z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <div class="post-modal__body">
+        <textarea placeholder="What do you want to talk about?" id="post-text-input" aria-label="Post content"></textarea>
+        
+        <!-- Image Upload / Attachment Preview Area -->
+        <div class="post-modal__attachment-preview hidden" id="post-attachment-preview">
+          <button class="remove-attachment-btn" id="remove-attachment" aria-label="Remove image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+              <path d="M12 4.41L10.59 3 8 5.59 5.41 3 4 4.41 6.59 7 4 9.59 5.41 11 8 8.41 10.59 11 12 9.59 9.41 7 12 4.41z"/>
+            </svg>
+          </button>
+          <img src="" alt="Post Attachment Preview" id="attachment-preview-img">
+        </div>
+      </div>
+      
+      <!-- Media Actions & Footer -->
+      <div class="post-modal__footer">
+        <div class="post-modal__media-actions">
+          <label class="media-action-label" for="modal-image-upload">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-1 1H5a1 1 0 01-1-1v-5.6l3.3-3.3a1 1 0 011.4 0L12 12.3l3.3-3.3a1 1 0 011.4 0L20 12.3zM10.5 10a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>
+            </svg>
+            <input type="file" id="modal-image-upload" accept="image/*" class="hidden-input">
+          </label>
+          <button class="media-action-icon-btn" aria-label="Add a video">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm-9 12V8l6 4z"/>
+            </svg>
+          </button>
+          <button class="media-action-icon-btn" aria-label="Create a template">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-1 14H6v-2h12zm0-4H6v-2h12zm0-4H6V7h12z"/>
+            </svg>
+          </button>
+          <button class="media-action-icon-btn" aria-label="Add a document">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 16h6v-2H9v2zm0-4h6v-2H9v2z"/>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="post-modal__publish">
+          <button class="post-modal__ai-write-btn" id="ai-rewrite-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" class="ai-spark-icon">
+              <path d="M11.5 2L9 8.5 2.5 11 9 13.5 11.5 20 14 13.5 20.5 11 14 8.5z"/>
+            </svg>
+            Write with AI
+          </button>
+          <button class="post-modal__submit-btn" id="submit-post-btn" disabled>Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING MESSAGING PANEL (BOTTOM RIGHT) -->
+  <div class="messaging-panel collapsed" id="messaging-bar">
+    <button class="messaging-panel__header" id="messaging-bar-trigger">
+      <div class="messaging-panel__header-left">
+        <div class="messaging-panel__self-avatar" id="messaging-bar-avatar"></div>
+        <span class="messaging-panel__title">Messaging</span>
+      </div>
+      <div class="messaging-panel__header-right">
+        <button class="header-icon-btn" aria-label="Messaging options">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+            <path d="M3 9.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>
+          </svg>
+        </button>
+        <button class="header-icon-btn" aria-label="Compose new message">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+            <path d="M15 13H1V3h14v10zm-1-8H2v6h12V5zM4 6h3v1H4V6zm0 2h5v1H4V8zm0 2h8v1H4v-1z"/>
+          </svg>
+        </button>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="drawer-chevron">
+          <path d="M4.5 11L8 7.5l3.5 3.5 1-1-4.5-4.5-4.5 4.5z"/>
+        </svg>
+      </div>
+    </button>
+    
+    <div class="messaging-panel__body">
+      <!-- Search inside messaging -->
+      <div class="messaging-panel__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+          <path d="M14.56 12.44L11.3 9.18a5.5 5.5 0 10-2.12 2.12l3.26 3.26a1.5 1.5 0 102.12-2.12zM3 6.5A3.5 3.5 0 116.5 10 3.5 3.5 0 013 6.5z"/>
+        </svg>
+        <input type="text" placeholder="Search messages" id="messaging-search-input">
+      </div>
+      
+      <!-- Conversations list -->
+      <div class="messaging-panel__conversations-list" id="conversations-container">
+        <!-- Filled via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING CHAT WINDOWS CONTAINER (BESIDE MESSAGING DRAWER) -->
+  <div class="active-chats-container" id="active-chats-container">
+    <!-- Active popups slide in here -->
+  </div>
+
+  <!-- Script links -->
+  <script src="app.js"></script>
+</body>
+</html>
